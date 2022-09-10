@@ -4,9 +4,13 @@ import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.repository.ItemRepository;
 import jpabook.jpashop.repository.MemberRepository;
 import jpabook.jpashop.repository.OrderRepository;
+import jpabook.jpashop.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -37,8 +41,8 @@ orderRepository.save(order); return order.getId();
 //주문 취소
         order.cancel();
     }
-/** 주문 검색 */ /*
+/** 주문 검색 */
       public List<Order> findOrders(OrderSearch orderSearch) {
           return orderRepository.findAll(orderSearch);
-} */
+}
 }
